@@ -1,6 +1,6 @@
 """My first program for COMP110."""
 
-__author__="730412085"
+__author__ = "730412085"
 
 
 
