@@ -6,7 +6,7 @@ if(weather =="rain"):
     print("Pack an umbrella!")
     print("but splash in the puddles!")
 else:
-    if(weather =="snow")
+    if(weather =="snow"):
         print("Pack a jacket!")
     print("You don't need an umbrella!")
 print("Have a lovely day!")
