@@ -14,3 +14,7 @@ while card_idx < 4:
         low_card = current_card
     card_idx = card_idx+1
 print(low_card)
+
+age: int = 21
+msg: str = f"You are {age}!"
+print(msg)
