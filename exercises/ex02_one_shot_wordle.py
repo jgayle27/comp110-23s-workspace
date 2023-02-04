@@ -1,11 +1,9 @@
-"""Ex02 - One Shot Wordle"""
+"""Ex02 - One Shot Wordle."""
 __author__ = "730412085"
 
 secret: str = "python"
 len_secret: int = len(secret)
-guess: str = input(f"What is your {len_secret}-letter guess? ")
 index: int = 0
-numb_guess: int = 0
 WHITE_BOX: str = "\U00002B1C"
 GREEN_BOX: str = "\U0001F7E9"
 YELLOW_BOX: str = "\U0001F7E8"
@@ -14,15 +12,11 @@ result = str()
 yellow_check: int = 0
 """What the yellow/white box loop runs on"""
 color_bool: bool = False
+guess: str = input(f"What is your {len_secret}-letter guess? ")
 
-"""To make sure guess is x letters, with each mistake guess count goes up until a maximum of 4 guesses"""
+"""To make sure guess is x letters"""
 while(len(guess) != len_secret):
-    if(numb_guess < 4):
         guess = input(f"That was not {len_secret} letters! Try again: ")
-        numb_guess = numb_guess + 1
-    else:
-        print("Not quite. Play again soon!")
-        exit()
 
 """Guess is x letters, so output respective colored boxes"""
 while(index < len_secret):
