@@ -34,11 +34,12 @@ while(index < len_secret):
                     result = (f"{result}{YELLOW_BOX}")
                     index = index + 1
                 else:
-                    yellow_check = yellow_check + 1
                     if(yellow_check == len_secret):
                         color_bool = True
-            result = (f"{result}{WHITE_BOX}")      
-            index = index + 1
+                    yellow_check = yellow_check + 1
+                if(yellow_check > len_secret):
+                    result = (f"{result}{WHITE_BOX}")      
+                    index = index + 1
 
 """Reset variables"""
 yellow_check = 0
