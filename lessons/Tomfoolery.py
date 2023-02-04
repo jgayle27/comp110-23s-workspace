@@ -8,3 +8,4 @@ while (msg[index] != exclamation):
         print(f"Thanks! {chr(129312)}")
     if ((msg[index] != exclamation) == True):
         print("Wow you're so enthusiastic.")
+
