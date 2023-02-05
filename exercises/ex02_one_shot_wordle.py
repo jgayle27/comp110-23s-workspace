@@ -15,40 +15,34 @@ color_bool: bool = False
 guess: str = input(f"What is your {len_secret}-letter guess? ")
 
 """To make sure guess is x letters"""
-while(len(guess) != len_secret):
-        guess = input(f"That was not {len_secret} letters! Try again: ")
+while (len(guess) != len_secret): 
+    guess = input(f"That was not {len_secret} letters! Try again: ")
 
 """Guess is x letters, so output respective colored boxes"""
-while(index < len_secret):
+while (index < len_secret): 
     yellow_check = 0
     color_bool = False
-    if(guess[index] == secret[index]):
+    if (guess[index] == secret[index]): 
         result = (f"{result}{GREEN_BOX}")
-        index = index+1
+        index = index + 1
     else:
-        while(color_bool == False):
-            while(yellow_check < len_secret):
-                if(guess[index] == secret[yellow_check]):
-                    color_bool = True
-                    yellow_check = len_secret
-                    result = (f"{result}{YELLOW_BOX}")
-                    index = index + 1
-                else:
-                    if(yellow_check == len_secret):
-                        color_bool = True
+        while (color_bool != True):            
+            if (guess[index] == secret[yellow_check]): 
+                result = (f"{result}{YELLOW_BOX}") 
+                index = index + 1
+                color_bool = True
+            else:
+                if (guess[index] != secret[yellow_check]): 
                     yellow_check = yellow_check + 1
-                if(yellow_check > len_secret):
-                    result = (f"{result}{WHITE_BOX}")      
-                    index = index + 1
-
-"""Reset variables"""
-yellow_check = 0
-color_bool = False
+                    if (yellow_check >= len_secret): 
+                        result = (f"{result}{WHITE_BOX}")
+                        index = index + 1
+                        color_bool = True
 
 """Results: if guess is correct all green boxes, if incorrect green/yellow/white boxes with corresponding notes"""
-if(guess == secret):
-        print(f"{result} \nWoo you got it!")
-        exit()
+if (guess == secret): 
+    print(f"{result} \nWoo! You got it!")
+    exit()
 else:
-        print(f"{result} \nNot quite. Play again soon!")
-        exit()
+    print(f"{result} \nNot quite. Play again soon!")
+    exit()
