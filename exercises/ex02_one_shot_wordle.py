@@ -26,7 +26,7 @@ while (index < len_secret):
         result = (f"{result}{GREEN_BOX}")
         index = index + 1
     else:
-        while (color_bool != True):            
+        while (color_bool is False):            
             if (guess[index] == secret[yellow_check]): 
                 result = (f"{result}{YELLOW_BOX}") 
                 index = index + 1
@@ -42,7 +42,5 @@ while (index < len_secret):
 """Results: if guess is correct all green boxes, if incorrect green/yellow/white boxes with corresponding notes"""
 if (guess == secret): 
     print(f"{result} \nWoo! You got it!")
-    exit()
 else:
     print(f"{result} \nNot quite. Play again soon!")
-    exit()
