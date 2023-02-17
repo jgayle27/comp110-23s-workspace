@@ -1,8 +1,7 @@
 """EX03 - Structured Wordle"""
 __author__ = "730412085"
 
-
-"""CODE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"""
+"""Wordle Code"""
 def contains_char(secret: str, guess_char: str) -> bool:
     """Compares the secret's letters to the guess's letters and outputs a boolean value"""
     assert len(guess_char) == 1
@@ -20,16 +19,17 @@ def contains_char(secret: str, guess_char: str) -> bool:
                         
 
 def emojified(secret: str, guess: str) -> str:
-    """Output colored boxes according to correctness and secret length"""
+    """Output colored boxes according to correctness and limited by secret length"""
     assert len(guess) == len(secret)
 
-    """Assess boxes needed"""
+    """Needed emojified variables"""
     WHITE_BOX: str = "\U00002B1C"
     GREEN_BOX: str = "\U0001F7E9"
     YELLOW_BOX: str = "\U0001F7E8"
     result = str()
     guess_index = 0
 
+    """Select box for each character and add to result string"""
     while(guess_index < len(secret)):
         if(contains_char(secret, guess[guess_index]) == True):
             if(guess[guess_index] == secret[guess_index]):
@@ -42,6 +42,7 @@ def emojified(secret: str, guess: str) -> str:
     return(result)
 
 def input_guess(number_letters: int) -> str:
+    """Takes length of the secret and ensures the guess is the same length, outputs guess"""
     guess = input(f"Enter a {number_letters} letter word: ")
     while (len(guess) != number_letters):
         guess = input(f"That wasn't {number_letters}! Try again: ")
@@ -49,7 +50,7 @@ def input_guess(number_letters: int) -> str:
     
 def main() -> None:
     """The entry point of the program and main game loop"""
-    """Variables needed and unchanged"""
+    """Variables needed"""
     N: int = 1
     secret: str = "codes"
     exit: bool = False
