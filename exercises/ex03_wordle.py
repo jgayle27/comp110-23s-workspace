@@ -40,3 +40,32 @@ def emojified(secret: str, guess: str) -> str:
             result = (f"{result}{WHITE_BOX}")
         guess_index = guess_index + 1
     return(result)
+
+def input_guess(number_letters: int) -> str:
+    guess = input(f"Enter a {number_letters} letter word: ")
+    while (len(guess) != number_letters):
+        guess = input(f"That wasn't {number_letters}! Try again: ")
+    return(guess)
+    
+def main() -> None:
+    """The entry point of the program and main game loop"""
+    """Variables needed and unchanged"""
+    N: int = 1
+    secret: str = "codes"
+    exit: bool = False
+
+    while(exit is False):
+        print(f"=== Turn {N}/6 ===")
+        main_guess = input_guess(len(secret))
+        print(emojified(secret, main_guess))
+        if(main_guess == secret):
+            print(f"You won in {N}/6 turns!")
+            exit = True
+        else:
+            if(N == 6):
+                print("X/6 - Sorry, try again tomorrow!")
+                exit = True
+            N = N + 1
+        
+if __name__ == "__main__":
+    main()
