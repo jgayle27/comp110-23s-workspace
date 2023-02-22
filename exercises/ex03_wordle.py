@@ -6,15 +6,16 @@ def contains_char(secret: str, guess_char: str) -> bool:
     """Compares the secret's letters to the guess's letters and outputs a boolean value."""
     assert len(guess_char) == 1
     secret_char_count = 0
+    contains_var: bool = False
     """Assess letters"""
-    while (secret_char_count < len(secret)): 
+    while (secret_char_count < len(secret) and contains_var is False): 
         if (guess_char == secret[secret_char_count]): 
-            return (True)
+            contains_var = True
         else:
             if (guess_char != secret[secret_char_count]): 
                 secret_char_count = secret_char_count + 1
-                if (secret_char_count >= len(secret)): 
-                    return (False)
+    return(contains_var)
+
                         
 
 def emojified(guess: str, secret: str) -> str:
@@ -41,9 +42,9 @@ def emojified(guess: str, secret: str) -> str:
 
 def input_guess(number_letters: int) -> str:
     """Takes length of the secret and ensures the guess is the same length, outputs guess."""
-    guess = input(f"Enter a {number_letters} letter word: ")
+    guess = input(f"Enter a {number_letters} character word: ")
     while (len(guess) != number_letters):
-        guess = input(f"That wasn't {number_letters}! Try again: ")
+        guess = input(f"That wasn't {number_letters} chars! Try again: ")
     return (guess)
     
 
