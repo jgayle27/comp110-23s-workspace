@@ -2,15 +2,13 @@
 __author__ = "7304121085"
 
 
-utils_list: list[str] = list()
-utils_idx = 0
-
-
-def all(utils_list: list[int], int) -> bool:
+def all(utils_list: list[int], input_int: int) -> bool:
     """Takes a list and compares each item in list to some singular integer."""
-    while (utils_list[utils_idx] == int):
+    utils_idx = 0
+
+    while (utils_list[utils_idx] == input_int):
         utils_idx = utils_idx + 1
-        if(utils_idx > len(utils_list)):
+        if (utils_idx > len(utils_list) - 1):
             return (True)
     return (False)
 
@@ -20,10 +18,10 @@ def max(max_list: list[int]) -> int:
     max_int = max_list[0]
     max_idx = 0
 
-    if len(max_list) == 0:
+    if (len(max_list) == 0):
         raise ValueError("max() arg is an empty List")
     while (max_idx <= len(max_list) - 1):
-        if max_list[max_idx] > max_int:
+        if (max_list[max_idx] > max_int):
             max_int = max_list[max_idx]
             max_idx = max_idx + 1
         else:
@@ -39,7 +37,7 @@ def is_equal(first_equal: list[int], second_equal: list[int]) -> bool:
             if (first_equal[e_idx] == second_equal[e_idx]):
                 e_idx = e_idx + 1
             else:
-                return(False)
+                return (False)
         return (True)
     else:
         return (False)
