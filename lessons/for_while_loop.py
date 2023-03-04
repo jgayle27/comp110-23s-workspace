@@ -24,4 +24,3 @@ names: list[str] = ["Alyssa", "Janet", "Vrinda"]
 
 for idx in range(0,3):
     print(f"{idx}: {names[idx]}")
-    
