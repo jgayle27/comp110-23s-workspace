@@ -3,6 +3,8 @@ __author__ = "730412085"
 
 
 from exercises.ex05.utils import only_evens, concat, sub
+
+
 def test_empty() -> None:
     """Test using only_evens and an empty list, results in empty list."""
     test_list = list()
@@ -48,11 +50,39 @@ def test_list_b_empty() -> None:
     assert concat(test_a, test_b) == [1, 4, 5, 6]
 
 
+def test_list_a_empty_and_one() -> None:
+    """Test using concat and one empty list and one filled list, results in list with number from filled list."""
+    test_a = list()
+    test_b = [1]
+    assert concat(test_a, test_b) == [1]
+
+
+def test_list_b_empty_and_one() -> None:
+    """Test using concat and one empty list and one filled list, results in list with number from filled list."""
+    test_a = [1]
+    test_b = list()
+    assert concat(test_a, test_b) == [1]
+
+
 def test_normal_use() -> None:
-    """Test using concat and two different lists, results in one list with all values."""
+    """Test using concat and two unique, same lengthlists, results in one list with all values."""
+    test_a = [1, 3, 4, 5]
+    test_b = [2, 7, 9, 8]
+    assert concat(test_a, test_b) == [1, 3, 4, 5, 2, 7, 9, 8]
+
+
+def test_normal_use_identical() -> None:
+    """Test using concat and two identical lists, results in one list with all values."""
+    test_a = [1, 3, 4, 5]
+    test_b = [1, 3, 4, 5]
+    assert concat(test_a, test_b) == [1, 3, 4, 5, 1, 3, 4, 5]
+
+
+def test_normal_use_dif_legths() -> None:
+    """Test using concat and two different lengthedlists, results in one list with all values."""
     test_a = [1, 3, 4, 5, 6]
-    test_b = [1, 2, 3, 4]
-    assert concat(test_a, test_b) == [1, 3, 4, 5, 6, 1, 2, 3, 4]
+    test_b = [2, 7, 9, 8]
+    assert concat(test_a, test_b) == [1, 3, 4, 5, 6, 2, 7, 9, 8]
 
 
 def test_empty_sub() -> None:
@@ -100,7 +130,7 @@ def test_end_idx_negative() -> None:
     test_list = [1, 2, 3, 4]
     test_start = 0
     test_end = -2
-    assert sub(test_list, test_start, test_end) == [1, 2, 3, 4]
+    assert sub(test_list, test_start, test_end) == [1, 2, 3]
 
 
 def test_start_idx_same_as_list_length() -> None:
@@ -108,4 +138,4 @@ def test_start_idx_same_as_list_length() -> None:
     test_list = [1, 2, 3, 4]
     test_start = len(test_list)
     test_end = 3
-    assert sub(test_list, test_start, test_end) == [1, 2, 3, 4]
+    assert sub(test_list, test_start, test_end) == list()
