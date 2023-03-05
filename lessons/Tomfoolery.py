@@ -22,6 +22,9 @@ def sub(sub_list: list[int], st_idx: int, end_idx: int) -> list:
     """Takes a list and uses a start and end index to takes only a certain section of the list."""
     new_sub_list: list[int] = list()
 
+    if st_idx < 0:
+        st_idx = -st_idx
+        print(st_idx)
     if st_idx < 0 or st_idx == len(sub_list) - 1:
         st_idx = 0
     if end_idx > len(sub_list) - 1 or end_idx < 0:

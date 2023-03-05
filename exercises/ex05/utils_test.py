@@ -97,8 +97,8 @@ def test_st_idx_zero() -> None:
     """Test using sub and one filled list and start_idx = 0 and test_idx = some number, results in filled list."""
     test_list = [1, 2, 3, 4]
     test_start = 0
-    test_end = 3
-    assert sub(test_list, test_start, test_end) == [1, 2, 3, 4]
+    test_end = 2
+    assert sub(test_list, test_start, test_end) == [1, 2]
 
 
 def test_end_idx_zero() -> None:
@@ -106,7 +106,7 @@ def test_end_idx_zero() -> None:
     test_list = [1, 2, 3, 4]
     test_start = 0
     test_end = 0
-    assert sub(test_list, test_start, test_end) == [1]
+    assert sub(test_list, test_start, test_end) == []
 
 
 def test_start_idx_negative() -> None:
@@ -114,15 +114,15 @@ def test_start_idx_negative() -> None:
     test_list = [1, 2, 3, 4]
     test_start = -2
     test_end = 2
-    assert sub(test_list, test_start, test_end) == [1, 2, 3]
+    assert sub(test_list, test_start, test_end) == [1, 2]
 
 
 def test_end_idx_large() -> None:
     """Test using sub and filled list and start_idx = 0 and end_idx = some number, results in filled list."""
     test_list = [1, 2, 3, 4]
-    test_start = 0
+    test_start = 1
     test_end = 7
-    assert sub(test_list, test_start, test_end) == [1, 2, 3, 4]
+    assert sub(test_list, test_start, test_end) == [2, 3]
 
 
 def test_end_idx_negative() -> None:
@@ -130,7 +130,7 @@ def test_end_idx_negative() -> None:
     test_list = [1, 2, 3, 4]
     test_start = 0
     test_end = -2
-    assert sub(test_list, test_start, test_end) == [1, 2, 3]
+    assert sub(test_list, test_start, test_end) == [1, 2]
 
 
 def test_start_idx_same_as_list_length() -> None:
@@ -139,3 +139,11 @@ def test_start_idx_same_as_list_length() -> None:
     test_start = len(test_list)
     test_end = 3
     assert sub(test_list, test_start, test_end) == list()
+
+
+def test_sub_normal() -> None:
+    """Test using sub and a filled list and st_idx and end_idx within range."""
+    test_list = [1, 2, 3, 4, 5, 7]
+    test_start = 2
+    test_end = 4
+    assert sub(test_list, test_start, test_end) == [3, 4]
