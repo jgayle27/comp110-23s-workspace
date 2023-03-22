@@ -89,8 +89,9 @@ def rates_func(input_a: str, input_b: str, input_c: int, input_d: int, rates_poi
                 option_num += 1
             else:
                 rate_decision_bool = True
-                return(rates_points)
-    return(rates_points)
+                return (rates_points)
+    return (rates_points)
+
 
 def rewards(rewards_points: int, rewards_name: str) -> int:
     """Inputs points and player name to give player the opportunity to choose what they want to do with their points."""
