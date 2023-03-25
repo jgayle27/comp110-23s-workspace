@@ -34,7 +34,7 @@ def greet() -> None:
     """Greets player and them returns to main function."""
     global player
     player = input("Welcome to United Airlines Rewards! \n Please enter your name to log in:  ")
-    print(f"Thank you for choosing United, {player}. \nThe United Rewards program is designed to give back to you so you can travel where you want to, anytime. \nWith each flight, you will earn points towards your next adventure. \n    Where will good lead you? \U0001F6E9")
+    print(f"Thank you for choosing United, {player}. \nThe United Rewards program is designed to give back to you so you can travel where you want to, anytime. \nWith each flight, you will earn points towards your next adventure. \n    Where will good lead you? {HORIZONTAL_PLANE}")
     
 
 def flight(name: str) -> None:
@@ -113,7 +113,7 @@ def rewards(rewards_points: int, rewards_name: str) -> int:
 
 def seat_upgrade(seat_points: int) -> int:
     """Inputs points and flight number to determine seat upgrade cost and outputs new point amount."""
-    flight_num: int = int(input("-----\nWhat is your flight number?  "))
+    flight_num: int = int(input("-----\nWhat is your flight number? Enter number from '100' to '1000'  "))
     if (flight_num <= 500):
         seat_amount: int = randint(0, 30)
         print(f"Points required to update your seat on flight {flight_num} is {seat_amount}.")
@@ -151,14 +151,14 @@ def discount_flight(discount_points: int) -> int:
         if (discount_points - flight_discount <= 0):
             print("Your flight is not eligible for discount. \n----\nRedirecting you to the main menu.")
             return (discount_points)
-        if (flight_cost - flight_discount * 1.7 <= 0):
+        if (flight_cost - (flight_discount * 0.7) <= 0):
             print("Your flight is not eligible for discount. \n----\nRedirecting you to the main menu.")
             return (discount_points)
         else:
-            new_flight_cost: float = flight_cost - flight_discount * 1.7
-        if (new_flight_cost >= 80):
+            new_flight_cost: float = flight_cost - (flight_discount * 2.7)
+        if (new_flight_cost >= 50):
             print(f"Your discounted flight total is calculated to be:  ${new_flight_cost} from original cost of ${flight_cost}.")
-            discount_choice: str = input("Use your points to discount your flight? Enter 'yes' or 'no'.  ")
+            discount_choice: str = input(f"Use {flight_discount} points to discount your flight? Enter 'yes' or 'no'.  ")
             if (discount_choice == 'yes'):
                 discount_points = discount_points - flight_discount
                 print(f"Your flight has been discounted. Your remaining Rewards points balance is {discount_points}")
@@ -174,14 +174,14 @@ def discount_flight(discount_points: int) -> int:
         if (discount_points - flight_discount <= 0):
             print("Your flight is not eligible for discount. \n----\nRedirecting you to the main menu.")
             return (discount_points)
-        if (flight_cost - flight_discount * 1.7 <= 0):
+        if (flight_cost - (flight_discount * 2.7) <= 0):
             print("Your flight is not eligible for discount. \n----\nRedirecting you to the main menu.")
             return (discount_points)
         else:
-            new_flight_cost = flight_cost - flight_discount * 1.7
+            new_flight_cost = flight_cost - (flight_discount * 0.7)
         if (new_flight_cost >= 100):
             print(f"Your discounted flight total is calculated to be:  ${new_flight_cost} from original cost of ${flight_cost}.")
-            discount_choice = input("Use your points to discount your flight? Enter 'yes' or 'no'.  ")
+            discount_choice = input(f"Use {flight_discount} points to discount your flight? Enter 'yes' or 'no'.  ")
             if (discount_choice == 'yes'):
                 discount_points = discount_points - flight_discount
                 print(f"Your flight has been discounted. Your remaining Rewards points balance is {discount_points}")
