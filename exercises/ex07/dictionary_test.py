@@ -19,12 +19,13 @@ def test_normal_use_with_small_dictionary() -> None:
 
 
 def test_empty_dict() -> None:
-    """Test using invert and an empty dictionary, results in ."""
+    """Test using invert and an empty dictionary, results in an empty dictionary."""
     test_dictionary = {}
     assert invert(test_dictionary) == {}
 
 
 with pytest.raises(KeyError):
+    """Test using pytest to ensure that given a dictionary with identical values, the result will be a raised KeyError."""
     my_dictionary = {'kris': 'jordan', 'michael': 'jordan'}
     invert(my_dictionary)
 
@@ -42,7 +43,7 @@ def test_normal_use_with_unique_values() -> None:
 
 
 def test_empty_dictionary() -> None:
-    """Tests favorite_color using empty dictionary, results in empty dictionary."""
+    """Tests favorite_color using empty dictionary, results in an empty string."""
     test_color_dict = {}
     assert favorite_color(test_color_dict) == ""
 
