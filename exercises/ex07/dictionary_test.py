@@ -3,6 +3,7 @@
 __author__ = "730412085"
 
 from exercises.ex07.dictionary import invert, favorite_color, count
+import pytest
 
 
 def test_normal_use_invert() -> None:
@@ -23,10 +24,9 @@ def test_empty_dict() -> None:
     assert invert(test_dictionary) == {}
 
 
-# def test_normal_use_with_identical_keys() -> None:
-#    """Test using invert and a dictionary where the values are duplicates so the result would have duplicate key values, results in KeyError."""
-#    test_dictionary = {"a":"!", "b":"*", "c":"3", "d":"!"}
-#    assert invert(test_dictionary) == KeyError("cannot have two identical keys!")
+with pytest.raises(KeyError):
+    my_dictionary = {'kris': 'jordan', 'michael': 'jordan'}
+    invert(my_dictionary)
 
 
 def test_normal_use_color() -> None:
@@ -44,7 +44,7 @@ def test_normal_use_with_unique_values() -> None:
 def test_empty_dictionary() -> None:
     """Tests favorite_color using empty dictionary, results in empty dictionary."""
     test_color_dict = {}
-    assert favorite_color(test_color_dict) == ()
+    assert favorite_color(test_color_dict) == ""
 
 
 def test_normal_use_count() -> None:
