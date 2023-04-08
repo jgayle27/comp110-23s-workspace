@@ -24,3 +24,14 @@
     # return (top_color)
     for key in new_dict:
         compare_list.append(new_dict[key])
+
+
+    # for key in head_dict:
+    #     while idx < num_rows:
+    #         num_list: list[str] = []
+    #         num_list.append(head_dict[key])
+    #         idx += 1
+    # while idx_list <= len(num_list):
+    #     print(num_list)
+    #     new_dict[num_list[idx_list]] = head_dict[num_list[idx_list]]
+    #     idx_list += 1
