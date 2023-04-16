@@ -1,3 +1,5 @@
+"""EX09 - Simulation of River class using Bear and Fish classes."""
+
 from exercises.ex09.river import River
 
 

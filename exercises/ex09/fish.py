@@ -1,10 +1,13 @@
-"""File to define Fish class"""
+"""File to define Fish class."""
+
 
 class Fish:
+    """Simulate fish in river."""
 
     age: int
     
     def __init__(self):
+        """Initialize fish ages."""
         self.age = int(0)
     
     def __str__(self):
@@ -13,4 +16,5 @@ class Fish:
         return None
 
     def one_day(self):
+        """Simulate fish growing one day older."""
         self.age += 1
