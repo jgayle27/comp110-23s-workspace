@@ -28,12 +28,12 @@ class River:
         """Copy surviving fish and bears to new list and change self.fish/bear to that list."""
         new_fish: list[Fish] = []
         new_bears: list[Bear] = []
-        for x in self.fish:
-            if x <= 3:
+        for fish in self.fish:
+            if fish.age <= 3:
                 new_fish.append(Fish())
         self.fish = new_fish
-        for x in self.bears:
-            if x <= 5:
+        for bear in self.bears:
+            if bear.age <= 5:
                 new_bears.append(Bear())
         self.bears = new_bears
         return None
@@ -42,27 +42,25 @@ class River:
         """Remove "amount" of fish."""
         new_fish: list[Fish] = []
         idx: int = amount
-        for x in self.fish:
-            while idx <= len(self.fish):
-                new_fish.append(x)
-                idx += 1
+        for x in range(idx, len(self.fish)):
+            new_fish.append(self.fish[x])
         self.fish = new_fish
         return None
 
     def bears_eating(self):
         """Simulate bears eating and decreasing fish population."""
-        for x in self.bears:
+        for bear in self.bears:
             if len(self.fish) >= 5:
-                Bear.eat(3)
-                River.remove_fish(3)
+                self.remove_fish(3)
+                bear.eat(3)
         return None
     
     def check_hunger(self):
         """Removes bear if bear gets too hungry and starves."""
         new_bears: list[Bear] = []
-        for x in self.bears:
-            if Bear.hunger_score >= 0:
-                new_bears.append(x)
+        for bear in self.bears:
+            if bear.hunger_score >= 0:
+                new_bears.append(Bear())
         self.bears = new_bears
         return None
         
