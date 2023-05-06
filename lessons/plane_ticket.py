@@ -31,6 +31,7 @@ class PlaneTicket:
         """Update ticket cost."""
         self.ticket_cost = self.ticket_cost - (self.ticket_cost * discount)
 
+
     
 
 # Function so move out of class
